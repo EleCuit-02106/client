@@ -1,0 +1,9 @@
+[submodule "EleCuit/Assets/Internals"]
+	path = EleCuit/Assets/Internals
+	url = git@github.com:EleCuit-02106/Internals.git
+[submodule "EleCuit/Assets/Externals"]
+	path = EleCuit/Assets/Externals
+	url = git@github.com:EleCuit-02106/Externals.git
+[submodule "Tools"]
+	path = Tools
+	url = git@github.com:EleCuit-02106/Tools.git
