@@ -1,5 +1,13 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: Assets/Internals/dUnitility/Sources/duScenes/AppBase.unity
   isLoaded: 1
   isActive: 1
+  isSubScene: 0
+- path: Assets/Internals/dUnitility/Sources/duScenes/Debug.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Internals/dUnitility/Sources/duScenes/OSUI.unity
+  isLoaded: 1
+  isActive: 0
   isSubScene: 0
