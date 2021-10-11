@@ -9,6 +9,7 @@ EleCuit/[Bb]uild/
 EleCuit/[Bb]uilds/
 EleCuit/[Ll]ogs/
 EleCuit/[Mm]emoryCaptures/ 
+EleCuit/[Uu]ser[Ss]ettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
