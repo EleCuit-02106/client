@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EleCuit.Part
+﻿namespace EleCuit.Parts
 {
     /// <summary>
     /// 電子回路部品

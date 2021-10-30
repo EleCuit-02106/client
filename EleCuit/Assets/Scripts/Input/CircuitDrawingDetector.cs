@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using EleCuit.Part;
+using EleCuit.Parts;
 using UnityEngine;
 
 namespace EleCuit.Input
@@ -19,8 +19,6 @@ namespace EleCuit.Input
     }
     public class CircuitDrawingDetector : MonoBehaviour, IRxCircuitDrawingDetector
     {
-        private IRxTouchDetector touchDetector;
-
         void Start()
         {
             throw new NotImplementedException();

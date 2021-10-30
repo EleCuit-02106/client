@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using EleCuit.Part;
+using EleCuit.Parts;
 using UnityEngine;
 
 namespace EleCuit.Input
