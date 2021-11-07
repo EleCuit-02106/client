@@ -7,3 +7,6 @@
 [submodule "Tools"]
 	path = Tools
 	url = git@github.com:EleCuit-02106/Tools.git
+[submodule "EleCuit/Assets/Stocks"]
+	path = EleCuit/Assets/Stocks
+	url = git@github.com:EleCuit-02106/Stocks.git
