@@ -7,7 +7,7 @@ namespace EleCuit.Inventory
     /// <summary>
     /// <see cref="CircuitInventory"/>に読み取り専用でアクセスできる
     /// </summary>
-    public interface IReadOnlyCircuitInventory
+    public interface IRxCircuitInventory
     {
 
     }
@@ -21,7 +21,7 @@ namespace EleCuit.Inventory
     /// <summary>
     /// 描画可能な電線の長さを保持して管理する
     /// </summary>
-    public class CircuitInventory : IReadOnlyCircuitInventory, ICircuitInventoryInitializer
+    public class CircuitInventory : MonoBehaviour, IRxCircuitInventory, ICircuitInventoryInitializer
     {
 
     }

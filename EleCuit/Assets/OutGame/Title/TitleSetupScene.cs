@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using du.Test;
+using du.Debug;
 
 namespace EleCuit {
 

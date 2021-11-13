@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Internals/dUnitility/Sources/duScenes/Debug.unity
     guid: c57316e93501c4dddbdb318db54740a0
   - enabled: 1
-    path: Assets/Internals/dUnitility/Sources/duScenes/OSUI.unity
+    path: Assets/Internals/dUnitility/Sources/duScenes/GlobalUI.unity
     guid: 34d1d271b2d604307a0cb18254f68712
   - enabled: 1
     path: Assets/Scenes/OutGame/TitleSetup.unity

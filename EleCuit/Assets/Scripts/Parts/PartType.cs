@@ -4,11 +4,9 @@ using UnityEngine;
 
 namespace EleCuit.Parts
 {
-    /// <summary>
-    /// 抵抗部品
-    /// </summary>
-    public class Resistance : MonoBehaviour, IVoltagePart
+    public enum PartType
     {
-
+        LightBulb,
+        Resistance,
     }
 }
