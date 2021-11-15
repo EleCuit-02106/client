@@ -18,7 +18,7 @@ namespace EleCuit.Parts
     /// </summary>
     public class PartSettings : SingletonSerializedMonoBehaviour<PartSettings, IPartSettings>, IPartSettings
     {
-        [SerializeField]
+        [SerializeField, DictionaryDrawerSettings(KeyLabel = "PartData", ValueLabel = "Quantity")]
         private Dictionary<PartData, int> m_initialStockSetting;
 
         IReadOnlyDictionary<PartData, int> IPartSettings.StockSetting => m_initialStockSetting;
