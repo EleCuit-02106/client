@@ -6,13 +6,16 @@ namespace EleCuit.Installers
 {
     public class InventoryInstaller : MonoInstaller
     {
+        [SerializeField]
+        private PartInventory m_partInventoryPrefab;
+
         public override void InstallBindings()
         {
             Container
                 .Bind<IRxPartInventory>()
                 .To<PartInventory>()
-                .FromNewComponentOnNewGameObject()
-                .AsCached();
+                .FromComponentInNewPrefab(m_partInventoryPrefab)
+                .AsSingle();
 
         }
     }

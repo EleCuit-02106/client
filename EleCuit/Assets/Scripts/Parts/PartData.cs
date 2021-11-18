@@ -12,7 +12,7 @@ namespace EleCuit.Parts
     public class PartData : ScriptableObject, IEquatable<PartData>
     {
         [SerializeField]
-        private string m_name;
+        private PartType m_type;
         [SerializeField]
         private Sprite m_sprite;
         [SerializeField]
@@ -21,7 +21,7 @@ namespace EleCuit.Parts
         /// <summary>
         /// 部品の名称
         /// </summary>
-        public string Name => m_name;
+        public PartType Type => m_type;
         /// <summary>
         /// 部品の画像
         /// </summary>
@@ -34,16 +34,12 @@ namespace EleCuit.Parts
         public bool Equals(PartData other)
         {
             if (other is null) return false;
-            else return m_name.Equals(other.m_name);
+            else return m_type.Equals(other.m_type);
         }
 
         public override bool Equals(object other) =>
             other is PartData otherPart ? Equals(otherPart) : base.Equals(other);
 
-        public override int GetHashCode()
-        {
-            if (m_name is null) return base.GetHashCode();
-            else return m_name.GetHashCode();
-        }
+        public override int GetHashCode() => m_type.GetHashCode();
     }
 }

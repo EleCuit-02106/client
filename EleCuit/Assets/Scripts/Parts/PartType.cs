@@ -8,5 +8,6 @@ namespace EleCuit.Parts
     {
         LightBulb,
         Resistance,
+        Power,
     }
 }

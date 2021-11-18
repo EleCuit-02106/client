@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fad7370dd6e46008cd5c4ca77fd1fb, type: 3}
   m_Name: Resistance
   m_EditorClassIdentifier: 
-  m_name: Resistance
+  m_type: 1
   m_sprite: {fileID: 21300000, guid: 52d58d66c394844f1bb0b4536e480c4c, type: 3}
   m_icon: {fileID: 21300000, guid: 52d58d66c394844f1bb0b4536e480c4c, type: 3}
