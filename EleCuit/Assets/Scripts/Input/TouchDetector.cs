@@ -9,14 +9,21 @@ namespace EleCuit.Input
     /// <summary>
     /// タッチを検出する
     /// </summary>
-    public class TouchDetector : MonoBehaviour, IRxTouchDetector
+    public class TouchDetector : IRxSingleTouchInput, IRxMultiTouchInput
     {
-        void Start()
+        public TouchDetector()
         {
-            
+            //ObservableTouchInput.
         }
 
-        public IObservable<Vector2[]> ObservableTouchPosition =>
+        public IObservable<Vector2> ObservableTouchPosition()
+        {
             throw new NotImplementedException();
+        }
+
+        public IObservable<Vector2[]> ObservableTouchPositions()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

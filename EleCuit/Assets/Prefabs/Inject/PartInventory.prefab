@@ -48,8 +48,8 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: a5b2f929f46da4cf998d6e9c246f0b06, type: 2}
-    - {fileID: 11400000, guid: 08abcb252d3564579b9e022a01729cff, type: 2}
     - {fileID: 11400000, guid: d1f444b1114764f7dae05901968d7578, type: 2}
+    - {fileID: 11400000, guid: 08abcb252d3564579b9e022a01729cff, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -98,7 +98,7 @@ MonoBehaviour:
       Data: 3|UniRx.ReactiveProperty`1[[System.Int32, mscorlib]], UniRx
     - Name: value
       Entry: 3
-      Data: 15
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -116,7 +116,7 @@ MonoBehaviour:
       Data: 4|UniRx.ReactiveProperty`1[[System.Int32, mscorlib]], UniRx
     - Name: value
       Entry: 3
-      Data: 5
+      Data: 50
     - Name: 
       Entry: 8
       Data: 

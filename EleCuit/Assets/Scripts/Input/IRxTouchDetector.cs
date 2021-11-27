@@ -5,11 +5,12 @@ using UnityEngine;
 
 namespace EleCuit.Input
 {
-    public interface IRxTouchDetector
+    public interface IRxSingleTouchInput
     {
-        /// <summary>
-        /// タッチしている座標を購読します
-        /// </summary>
-        IObservable<Vector2[]> ObservableTouchPosition { get; }
+        IObservable<Vector2> ObservableTouchPosition();
+    }
+    public interface IRxMultiTouchInput
+    {
+        IObservable<Vector2[]> ObservableTouchPositions();
     }
 }

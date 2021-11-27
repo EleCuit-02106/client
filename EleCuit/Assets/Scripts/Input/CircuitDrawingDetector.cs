@@ -9,7 +9,7 @@ namespace EleCuit.Input
     /// <summary>
     /// ユーザーが電線を描画していることを検知する
     /// </summary>
-    public interface IRxCircuitDrawingDetector
+    public interface IRxCircuitDrawingInput
     {
         /// <summary>
         /// 描いている電線の座標の購読を提供します
@@ -17,7 +17,7 @@ namespace EleCuit.Input
         /// <returns></returns>
         IObservable<Vector2> ObservableCircuitDrawing();
     }
-    public class CircuitDrawingDetector : MonoBehaviour, IRxCircuitDrawingDetector
+    public class CircuitDrawingDetector : MonoBehaviour, IRxCircuitDrawingInput
     {
         void Start()
         {
