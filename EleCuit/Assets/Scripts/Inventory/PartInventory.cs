@@ -17,7 +17,7 @@ namespace EleCuit.Inventory
         /// <summary>
         /// すべての部品情報と、その在庫個数の購読権
         /// </summary>
-        IReadOnlyDictionary<PartData, IReadOnlyReactiveProperty<int>> ObservablePartInventories { get; }
+        IReadOnlyDictionary<PartType, IReadOnlyReactiveProperty<int>> ObservablePartInventories { get; }
     }
     public interface IPartInventory
     {
@@ -30,22 +30,14 @@ namespace EleCuit.Inventory
     public class PartInventory : SerializedMonoBehaviour, IPartInventory, IRxPartInventory
     {
         /// <summary>
-        /// 在庫の初期設定
-        /// Inspectorでの設定用
-        /// </summary>
-        [SerializeField]
-        private IReadOnlyDictionary<PartData, ReactiveProperty<int>> m_initialPartInventory;
-        /// <summary>
         /// 部品の在庫を管理する倉庫
         /// </summary>
+        [SerializeField]
         private IReadOnlyDictionary<PartType, ReactiveProperty<int>> m_partInventory;
 
         private void Start()
         {
-            if (m_initialPartInventory is null) throw new System.Exception("nullですよ");
-            m_partInventory = m_initialPartInventory
-                                .ToDictionary(kvp => kvp.Key.Type,
-                                              kvp => kvp.Value);
+
         }
 
         [Button]
@@ -55,8 +47,8 @@ namespace EleCuit.Inventory
         public void SpendStock(PartType type, int amount = 1) =>
             m_partInventory[type].Value -= amount;
 
-        public IReadOnlyDictionary<PartData, IReadOnlyReactiveProperty<int>> ObservablePartInventories =>
-            m_initialPartInventory.DictionarySelect(rp => (IReadOnlyReactiveProperty<int>)rp).ToDictionary();
+        public IReadOnlyDictionary<PartType, IReadOnlyReactiveProperty<int>> ObservablePartInventories =>
+            m_partInventory.DictionarySelect(rp => (IReadOnlyReactiveProperty<int>)rp).ToDictionary();
 
     }
 }
