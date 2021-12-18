@@ -56,9 +56,7 @@ namespace EleCuit.Settings
         public IReadOnlyDictionary<PartType, PartData> PartTypePartDataTable =>
             m_resisteredParts.ToDictionary(data => data.Type, data => data);
 
-        public PartData GetPartData(PartType type)
-        {
-            throw new NotImplementedException();
-        }
+        public PartData GetPartData(PartType type) =>
+            m_resisteredParts.First(data => data.Type == type);
     }
 }
