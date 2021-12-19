@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d550995f0ed4429ac937cda04f203d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_partInventoryPanelArea: {fileID: 869891672}
+  m_partInventoryPanel: {fileID: 0}
 --- !u!4 &691640912
 Transform:
   m_ObjectHideFlags: 0
