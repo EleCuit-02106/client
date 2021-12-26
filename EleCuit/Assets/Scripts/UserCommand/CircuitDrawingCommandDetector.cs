@@ -20,17 +20,5 @@ namespace EleCuit.UserCommand
     /// </summary>
     public class CircuitDrawingCommandDetector : IRxCircuitDrawingCommandPublisher
     {
-        [Inject]
-        private IRxCircuitDrawingInput m_circuitDrawingInput;
-
-        public CircuitDrawingCommandDetector()
-        {
-            m_circuitDrawingInput
-                .ObservableCircuitDrawing()
-                .Subscribe(pos =>
-                {
-                    //処理
-                });
-        }
     }
 }
