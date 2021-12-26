@@ -13,6 +13,7 @@ namespace EleCuit.Settings
     public interface IPartsSetting
     {
         IReadOnlyList<PartData> ResisteredPartDatas { get; }
+        IReadOnlyDictionary<PartType, PartData> ResisteredPartDataTable { get; }
         PartData GetPartData(PartType type);
     }
     public class PartsSetting : SingletonSerializedMonoBehaviour<PartsSetting, IPartsSetting>, IPartsSetting
@@ -53,7 +54,7 @@ namespace EleCuit.Settings
                          .Count() > 0;
         }
 
-        public IReadOnlyDictionary<PartType, PartData> PartTypePartDataTable =>
+        public IReadOnlyDictionary<PartType, PartData> ResisteredPartDataTable =>
             m_resisteredParts.ToDictionary(data => data.Type, data => data);
 
         public PartData GetPartData(PartType type) =>

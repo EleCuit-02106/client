@@ -9,20 +9,23 @@ using UniRx;
 namespace EleCuit.UserCommand
 {
     /// <summary>
+    /// 導線を描画しているコマンドを発行する
+    /// </summary>
+    public interface IRxCircuitDrawingCommandPublisher
+    {
+
+    }
+    /// <summary>
     /// インプットから電線の描画を識別する
     /// </summary>
-    public class CircuitDrawingCommandDetector
+    public class CircuitDrawingCommandDetector : IRxCircuitDrawingCommandPublisher
     {
         [Inject]
-        private IRxCircuitDrawingDetector m_circuitDrawingDetector;
-        [Inject]
-        private IRxCircuitInventory m_circuitInventory;
-        [Inject]
-        private ICircuitSetupApprovalRequest m_circuitSetupApprovalRequest;
+        private IRxCircuitDrawingInput m_circuitDrawingInput;
 
         public CircuitDrawingCommandDetector()
         {
-            m_circuitDrawingDetector
+            m_circuitDrawingInput
                 .ObservableCircuitDrawing()
                 .Subscribe(pos =>
                 {
