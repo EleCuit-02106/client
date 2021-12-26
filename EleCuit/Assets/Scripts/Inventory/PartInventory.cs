@@ -33,17 +33,12 @@ namespace EleCuit.Inventory
         /// 部品の在庫を管理する倉庫
         /// </summary>
         [SerializeField]
-        private IReadOnlyDictionary<PartType, ReactiveProperty<int>> m_partInventory;
+        private Dictionary<PartType, ReactiveProperty<int>> m_partInventory;
 
-        private void Start()
-        {
-
-        }
-
-        [Button]
+        [Button, BoxGroup("在庫操作")]
         public void AddStock(PartType type, int amount = 1) =>
             m_partInventory[type].Value += amount;
-        [Button]
+        [Button, BoxGroup("在庫操作")]
         public void SpendStock(PartType type, int amount = 1) =>
             m_partInventory[type].Value -= amount;
 
