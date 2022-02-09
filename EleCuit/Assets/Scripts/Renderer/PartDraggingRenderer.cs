@@ -47,20 +47,19 @@ namespace EleCuit.Renderer
                     })
                     .ToDictionary();
 
-            foreach (var type in EnumUtils.All<PartType>())
-            {
-                var renderObject = m_partTypePrefabTable[type];
-                m_partDragCommandPublisher
-                    .ObservableDraggingPart(type)
-                    .DoOnCompleted(() => renderObject.SetActive(false))
-                    .Repeat()
-                    .Subscribe(pos =>
-                    {
-                        renderObject.transform.position = pos;
-                        if (!renderObject.activeSelf) renderObject.SetActive(true);
-                    })
-                    .AddTo(this);
-            }
+            //本当は外部に依存するのは良くないが…
+            GameObject renderObject = null;
+            m_partDragCommandPublisher
+                .ObservableDraggingPart()
+                .Do(pair => renderObject = m_partTypePrefabTable[pair.type])
+                .DoOnCompleted(() => renderObject.SetActive(false))
+                .Repeat()
+                .Subscribe(pair =>
+                {
+                    renderObject.transform.position = pair.point;
+                    if (!renderObject.activeSelf) renderObject.SetActive(true);
+                })
+                .AddTo(this);
         }
     }
 }

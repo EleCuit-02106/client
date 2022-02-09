@@ -14,6 +14,7 @@ using Sirenix.Utilities;
 using du.di;
 using EleCuit.UI;
 using UnityUtility;
+using UnityUtility.Rx.Operators;
 using Sirenix.OdinInspector;
 
 namespace EleCuit.UserCommand
@@ -27,9 +28,8 @@ namespace EleCuit.UserCommand
         /// 電子回路部品のドラッグ開始から終了までの座標軌跡を発行します。
         /// 終了したらOnCompletedするので再度購読が必要
         /// </summary>
-        /// <param name="type">購読する部品</param>
         /// <returns></returns>
-        IObservable<Vector2> ObservableDraggingPart(PartType type);
+        IObservable<(PartType type, Vector2 point)> ObservableDraggingPart();
     }
     /// <summary>
     /// インプット情報から部品のドラッグコマンドを識別する
@@ -39,12 +39,13 @@ namespace EleCuit.UserCommand
         [SerializeField]
         private IReadOnlyPartToolBoxButtons m_partToolBox;
 
-        public IObservable<Vector2> ObservableDraggingPart(PartType partType) =>
+        public IObservable<(PartType type, Vector2 point)> ObservableDraggingPart() =>
             ObservableTouchInput
                 .ObservableTouchBegan()
-                .Where(_ => m_partToolBox.PartTypeOfButtonBoundsTable.ContainsKey(partType))
-                .Where(point => m_partToolBox.PartTypeOfButtonBoundsTable[partType].Contains(point))
-                .SelectMany(ObservableTouchInput.ObservableTouchMoved())
+                .Select(point => m_partToolBox.GetPointedPartType(point))
+                .ExcludeNull()
+                .Select(type => type.Value)
+                .SelectMany(type => ObservableTouchInput.ObservableTouchMoved().Select(point => (type, point)))
                 .TakeUntil(ObservableTouchInput.ObservableTouchEnded());
     }
 }

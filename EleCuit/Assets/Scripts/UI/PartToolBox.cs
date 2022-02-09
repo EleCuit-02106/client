@@ -10,12 +10,19 @@ using EleCuit.Parts;
 using Sirenix.OdinInspector;
 using UnityUtility;
 using UnityUtility.Linq;
+using UnityUtility.Enums;
 
 namespace EleCuit.UI
 {
     public interface IReadOnlyPartToolBoxButtons
     {
         IReadOnlyDictionary<PartType, Bounds> PartTypeOfButtonBoundsTable { get; }
+        /// <summary>
+        /// 引数に指定した座標にあるツールボックス内のPartTypeを取得する
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        PartType? GetPointedPartType(Vector2 point);
     }
     public class PartToolBox : MonoBehaviour, IReadOnlyPartToolBoxButtons
     {
@@ -53,6 +60,18 @@ namespace EleCuit.UI
                 buttonTypeTable
                     .DictionarySelect(button => button.GetComponent<RectTransform>().GetWorldBounds())
                     .ToDictionary();
+        }
+
+        public PartType? GetPointedPartType(Vector2 point)
+        {
+            foreach (var type in EnumUtils.All<PartType>().Where(type => m_partTypeBoundsTable.ContainsKey(type)))
+            {
+                if (m_partTypeBoundsTable[type].Contains(point))
+                {
+                    return type;
+                }
+            }
+            return null;
         }
 
         public IReadOnlyDictionary<PartType, Bounds> PartTypeOfButtonBoundsTable => m_partTypeBoundsTable;
