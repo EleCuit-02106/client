@@ -41,7 +41,11 @@ namespace EleCuit.Course
                 .Where(pair => pair.piece != null)
                 .DistinctUntilChanged(pair => pair.piece)
                 .Repeat()
-                .Subscribe(pair => pair.piece.PartType = pair.type);
+                .Subscribe(pair =>
+                {
+                    pair.piece.PartType = pair.type;
+                    pair.piece.Refresh();
+                });
         }
 
         public IObservable<AcceptOrDeny> ObservablePartSetupAcceptOrDeny()
