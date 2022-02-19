@@ -17,26 +17,26 @@ namespace EleCuit.Renderer
         /// </summary>
         /// <param name="screenPoint"></param>
         /// <returns></returns>
-        GameObject GetPointedPiece(Vector2 screenPoint);
+        ICoursePiece GetPointedPiece(Vector2 screenPoint);
     }
     public class CourseRenderer : SerializedMonoBehaviour, ICourseRenderingSetting
     {
-        [SerializeField]
-        private IReadOnlyCourse m_cource;
+        [SerializeField] private IReadOnlyCourse m_course;
         /// <summary>
         /// 白枠SquareのPrefab
         /// </summary>
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject m_basePiece;
-        [SerializeField]
-        private GameObject m_courceGaomeObject;
+        [SerializeField, BoxGroup("Prefabs")] private CoursePiece m_basePiece;
+        [SerializeField] private GameObject m_courceGaomeObject;
         /// <summary>
         /// ひとつのマップピースの一辺の長さ
         /// </summary>
-        [SerializeField]
-        private float m_cellSize;
+        [SerializeField] private float m_cellSize;
+        /// <summary>
+        /// セル同士の間隔
+        /// </summary>
+        [SerializeField] private float m_cellMargin;
 
-        private Map<GameObject> m_gameObjectMap;
+        private Map<CoursePiece> m_pieceMap;
         private Vector2 m_initPosition;
 
         [Button]
@@ -44,40 +44,36 @@ namespace EleCuit.Renderer
         {
             DestroyAll();
 
-            float height = m_cource.Cource.RowCount * m_cellSize;
+            float height = m_course.CourseBody.RowCount * m_cellSize;
             float initHeight = height / 2;
 
             m_initPosition = new Vector2(0, initHeight);
-
-            m_gameObjectMap = new Map<GameObject>(m_cource.Cource.ColumnCount, m_cource.Cource.RowCount);
-            m_cource.Cource.DoForEachCell((cell, value) =>
+            m_pieceMap = new Map<CoursePiece>(m_course.CourseBody.ColumnCount, m_course.CourseBody.RowCount);
+            foreach (var cell in m_course.CourseBody.GetCellEnumerable())
             {
-                Vector2 position = m_initPosition + new Vector2(cell.Column * m_cellSize, cell.Row * -m_cellSize);
-                GameObject obj = Instantiate(m_basePiece, position, Quaternion.identity, m_courceGaomeObject.transform);
-                m_gameObjectMap[cell] = obj;
-                obj.transform.localScale = m_cellSize.ToVector2();
-            });
+                Vector2 position = m_initPosition + new Vector2(cell.Column * (m_cellSize + m_cellMargin), cell.Row * -(m_cellSize + m_cellMargin));
+                CoursePiece piece = CoursePiece.Instantiate(m_basePiece, position, m_courceGaomeObject.transform, cell.Value);
+                m_pieceMap[cell.Column, cell.Row] = piece;
+            }
         }
 
         private void DestroyAll()
         {
-            Debug.Log("destroyAllが呼ばれました");
             foreach (Transform item in m_courceGaomeObject.transform)
             {
-                Debug.Log("Destroy!!");
                 Destroy(item.gameObject);
             }
         }
 
         private UnityEngine.Camera m_camera;
-        public GameObject GetPointedPiece(Vector2 screenPoint)
+        public ICoursePiece GetPointedPiece(Vector2 screenPoint)
         {
             m_camera ??= UnityEngine.Camera.main;
             Vector2 worldPoint = m_camera.ScreenToWorldPoint(screenPoint);
             int column = (int)(worldPoint.x / m_cellSize);
             int row = (int)((-worldPoint.y + m_initPosition.y) / m_cellSize);
-            if(!m_gameObjectMap.IsWithInRange(column, row)) return null;
-            return m_gameObjectMap[column, row];
+            if (!m_pieceMap.IsWithInRange(column, row)) return null;
+            return m_pieceMap[column, row];
         }
     }
 }

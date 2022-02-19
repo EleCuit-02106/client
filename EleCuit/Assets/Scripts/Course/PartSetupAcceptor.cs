@@ -12,6 +12,7 @@ using EleCuit.Parts;
 using EleCuit.Renderer;
 using Sirenix.OdinInspector;
 using UnityUtility.Rx.Operators;
+using UniRx.Diagnostics;
 
 namespace EleCuit.Course
 {
@@ -34,13 +35,13 @@ namespace EleCuit.Course
 
         void Start()
         {
-            UnityEngine.Camera camera = UnityEngine.Camera.main;
             m_partDragCommandPublisher
                 .ObservableDraggingPart()
+                .Select(pair => (type: pair.type, piece: m_courseRenderer.GetPointedPiece(pair.point)))
+                .Where(pair => pair.piece != null)
+                .DistinctUntilChanged(pair => pair.piece)
                 .Repeat()
-                .Select(pair => m_courseRenderer.GetPointedPiece(pair.point))
-                .ExcludeNull()
-                .Subscribe(go => go.transform.localScale *= 1.1f);
+                .Subscribe(pair => pair.piece.PartType = pair.type);
         }
 
         public IObservable<AcceptOrDeny> ObservablePartSetupAcceptOrDeny()

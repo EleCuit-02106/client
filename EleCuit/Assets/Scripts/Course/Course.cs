@@ -9,22 +9,23 @@ namespace EleCuit.Course
 {
     public interface IReadOnlyCourse
     {
-        IReadOnlyReactiveMap<CourcePiece> Cource { get; }
+        IReadOnlyReactiveMap<CoursePieceInfo> CourseBody { get; }
     }
     /// <summary>
     /// コースそのもの
     /// </summary>
     public class Course : MonoBehaviour, IReadOnlyCourse
     {
-        private CourcePiece[,] _dummyCource = new CourcePiece[4,8];
-        private Map<CourcePiece> m_course;
+        private CoursePieceInfo[,] _dummyCource = new CoursePieceInfo[4, 8];
+        private Map<CoursePieceInfo> m_course;
 
-        public IReadOnlyReactiveMap<CourcePiece> Cource => m_course;
+        public IReadOnlyReactiveMap<CoursePieceInfo> CourseBody => m_course;
 
         // Start is called before the first frame update
         void Start()
         {
-            m_course = new Map<CourcePiece>(_dummyCource);
+            m_course = new Map<CoursePieceInfo>(_dummyCource);
+            m_course.ReWriteAll(_ => CoursePieceInfo.Default());
         }
     }
 }
