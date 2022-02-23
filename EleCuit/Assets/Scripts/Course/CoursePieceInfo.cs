@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using EleCuit.Parts;
-using UnityEngine;
 
 namespace EleCuit.Course
 {
@@ -20,7 +17,7 @@ namespace EleCuit.Course
     {
         None,
         Part,
-        Circuit,
+        Wire,
     }
 
     public enum WireType

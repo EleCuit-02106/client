@@ -458,15 +458,20 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 11400000, guid: a5b2f929f46da4cf998d6e9c246f0b06, type: 2}
     - {fileID: 11400000, guid: d1f444b1114764f7dae05901968d7578, type: 2}
     - {fileID: 11400000, guid: 08abcb252d3564579b9e022a01729cff, type: 2}
-    - {fileID: 11400000, guid: a5b2f929f46da4cf998d6e9c246f0b06, type: 2}
+    - {fileID: 11400000, guid: ff67863dd0dd24cdea905e5d4f167b04, type: 2}
+    - {fileID: 11400000, guid: 05abb52496f8a4a0480956770c508258, type: 2}
+    - {fileID: 11400000, guid: b7566d952d9ef401385de54bac194bf6, type: 2}
+    - {fileID: 11400000, guid: 53326db7e4213447bbb545c966c51e30, type: 2}
+    - {fileID: 11400000, guid: e0748d762989b4d648a137b7a37ed9e9, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: m_resisteredParts
+    - Name: m_partDataResistry
       Entry: 7
       Data: 0|System.Collections.Generic.List`1[[EleCuit.Parts.PartData, Assembly-CSharp]],
         mscorlib
@@ -482,6 +487,34 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_wireDataResistry
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[EleCuit.Course.Wire.WireData, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
     - Name: 
       Entry: 13
       Data: 
@@ -533,6 +566,7 @@ Transform:
   m_Children:
   - {fileID: 1016727428}
   - {fileID: 809141507}
+  - {fileID: 1297138813}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -596,6 +630,7 @@ MonoBehaviour:
   m_basePiece: {fileID: 8777328052163747258, guid: c5c3ffa4e5dd34b6aa832b08df60194d, type: 3}
   m_courceGaomeObject: {fileID: 1239624056}
   m_cellSize: 1
+  m_cellMargin: 0
 --- !u!1 &869891671
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +939,7 @@ GameObject:
   - component: {fileID: 1023722362}
   - component: {fileID: 1023722365}
   - component: {fileID: 1023722364}
+  - component: {fileID: 1023722366}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -927,6 +963,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1023722365}
   - {fileID: 1023722364}
+  - {fileID: 1023722366}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -981,6 +1018,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f8b893ca97104093a00341995b2b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1023722366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023722361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f906f99e8219441b96f0a1897b9fa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1195846210
@@ -1063,6 +1112,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1297138812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297138813}
+  - component: {fileID: 1297138814}
+  m_Layer: 0
+  m_Name: PartAcceptSignRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297138813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297138812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 744783379}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297138814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297138812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00e38f903d01417f9c3f1b2ddb0465e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1514095196
 GameObject:
   m_ObjectHideFlags: 0

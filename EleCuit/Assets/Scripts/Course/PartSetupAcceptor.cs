@@ -1,18 +1,13 @@
 using System;
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using EleCuit.UserCommand;
 using UniRx;
 using UnityUtility;
-using UnityUtility.Enums;
-using EleCuit.Parts;
 using EleCuit.Renderer;
 using Sirenix.OdinInspector;
 using UnityUtility.Rx.Operators;
-using UniRx.Diagnostics;
 
 namespace EleCuit.Course
 {
@@ -21,7 +16,7 @@ namespace EleCuit.Course
     /// </summary>
     public interface IRxPartSetupAcceptOrDeny
     {
-        IObservable<AcceptOrDeny> ObservablePartSetupAcceptOrDeny();
+        IObservable<(ICoursePiece piece, AcceptOrDeny status)> ObservablePartSetupAcceptOrDeny();
     }
     /// <summary>
     /// リクエストされた電気回路部品の配置可否を判定する
@@ -35,23 +30,29 @@ namespace EleCuit.Course
 
         void Start()
         {
-            m_partDragCommandPublisher
-                .ObservableDraggingPart()
-                .Select(pair => (type: pair.type, piece: m_courseRenderer.GetPointedPiece(pair.point)))
-                .Where(pair => pair.piece != null)
-                .DistinctUntilChanged(pair => pair.piece)
-                .Repeat()
-                .Subscribe(pair =>
-                {
-                    pair.piece.PartType = pair.type;
-                    pair.piece.Refresh();
-                });
+
         }
 
-        public IObservable<AcceptOrDeny> ObservablePartSetupAcceptOrDeny()
-        {
-            throw new NotImplementedException();
-        }
+        public IObservable<(ICoursePiece, AcceptOrDeny)> ObservablePartSetupAcceptOrDeny() =>
+            m_partDragCommandPublisher
+                //ドラッグしている部品とその座標を購読
+                .ObservableDraggingPart()
+                //ドラッグをやめるとOnCompletedするので再購読
+                .Repeat()
+                //座標から該当するCoursePieceを取得
+                .Select(pair => (type: pair.type, piece: m_courseRenderer.GetPointedPiece(pair.point)))
+                //該当するCoursePieceがない場合はnullが返るので排除
+                .ExcludeNull(pair => pair.piece)
+                //CoursePieceが変化したときのみ
+                .DistinctUntilChanged(pair => pair.piece)
+                //配置可能ならAccept, 不能ならDeny
+                .Select(pair => (pair.piece, pair.piece.IsReplaceable ? AcceptOrDeny.Accept : AcceptOrDeny.Deny))
+                .Share();
+        // .Subscribe(pair =>
+        // {
+        //     pair.piece.PartType = pair.type;
+        //     pair.piece.Refresh();
+        // });
     }
 
     public enum AcceptOrDeny

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using EleCuit.Course;
+using UniRx;
 
 namespace EleCuit.Renderer
 {
@@ -14,8 +15,17 @@ namespace EleCuit.Renderer
         [Inject]
         private IRxPartSetupAcceptOrDeny m_partSetupAcceptOrDeny;
 
-        void Start() {
-                
+        void Start() 
+        {
+            ICoursePieceAcceptOrDenySign before = null;
+            m_partSetupAcceptOrDeny
+                .ObservablePartSetupAcceptOrDeny()
+                .Subscribe(pair =>
+                {
+                    before?.ClearStatus();
+                    pair.piece.AcceptOrDenySign.SetStatus(pair.status);
+                    before = pair.piece.AcceptOrDenySign;
+                });
         }
     }
 }
