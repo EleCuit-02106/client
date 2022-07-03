@@ -67,3 +67,8 @@ EleCuit/Assets/Scenes/_tmpUtilScene.unity
 EleCuit/Assets/Scenes/_tmpUtilScene.unity.meta
 EleCuit/Assets/Scripts/_tmps/
 EleCuit/Assets/Scripts/_tmps.meta
+
+# boot.config
+# https://forum.unity.com/threads/info-or-docs-on-boot-config.971457/
+# > boot.config appears to live inside of Library, which means you DO NOT source control it.
+ProjectSettings/boot.config
