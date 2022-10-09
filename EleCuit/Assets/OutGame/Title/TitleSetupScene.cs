@@ -57,7 +57,7 @@ public class TitleSetupScene : MonoBehaviour
         LLog.MainBoot.Log("Completed application setup");
 
         Screen.SetResolution(10, 10, false, 60);
-        du.Mgr.Sequence.ChangeScene("Scenes/OutGame/Title");
+        await du.Mgr.Sequence.ChangeScene("Scenes/OutGame/Title");
     }
     #endregion
 }
