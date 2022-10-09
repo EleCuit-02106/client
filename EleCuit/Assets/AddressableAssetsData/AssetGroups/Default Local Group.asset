@@ -37,6 +37,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59c5f6931e58c40b08a835658550c242
+    m_Address: Assets/Stocks/GUI PRO Kit - Casual Game/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText_Frame_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be9d691021b624d1c8a5dd8be9bae25b
+    m_Address: Assets/OutGame/Title/TitleMenu/ECUITitleMenuModal.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2e8d82fab83ca4348b18218193759507, type: 2}
   m_SchemaSet:
