@@ -52,6 +52,10 @@ namespace EC.ECUI
         #region public
         public async void TransitionToLoadingScene()
         {
+            // 遷移を開始したらもうボタンは押せない
+            m_menuButton.SetInteractable(false);
+            m_touchableScreen.SetInteractable(false);
+
             m_tapToStartBlinker.Begin(time => Mathf.Cos(time * 40.0f) > 0.0f ? 0.8f : 0.4f);
             { // TOdO: 開発用に擬似ローディング時間
                 var ct = this.GetCancellationTokenOnDestroy();
