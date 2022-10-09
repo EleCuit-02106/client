@@ -71,7 +71,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4261686990865730451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 58b6ef78d46dc451b807cd81650d7c98, type: 2}
   m_CullingMode: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_okButton: {fileID: 611725332229028973}
   m_cancelButton: {fileID: 8875852761822644660}
   m_closeButton: {fileID: 561272969823116731}
+  m_dialog: {fileID: 4929854849416979770}
 --- !u!1 &4929854849416979770
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ GameObject:
   - component: {fileID: 4379378543591768654}
   - component: {fileID: 2599397305589497914}
   - component: {fileID: 7291086309022046115}
+  - component: {fileID: 4492518510313926949}
   m_Layer: 5
   m_Name: DialogGround
   m_TagString: Untagged
@@ -193,6 +195,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4492518510313926949
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929854849416979770}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58b6ef78d46dc451b807cd81650d7c98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8028636075344740553
 GameObject:
   m_ObjectHideFlags: 0
