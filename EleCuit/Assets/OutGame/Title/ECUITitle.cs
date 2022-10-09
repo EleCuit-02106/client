@@ -45,8 +45,7 @@ namespace EC.ECUI
         #region manual
         #region field
         [SerializeField] private ECUITitleInfoLabels m_titleInfoLabels;
-        private dUIModalDialog m_configModal;
-        private dUIModalDialog m_quitConfirmModal;
+        private dUIModalDialog m_menuModal;
         private UIBlinker m_tapToStartBlinker;
         #endregion
 
@@ -62,45 +61,25 @@ namespace EC.ECUI
         }
         public async void OpenConfigModal()
         {
-            if (m_configModal == null)
+            if (m_menuModal == null)
             {
                 dUIModalBuilder<dUIModalDialog> modalBuilder = new();
                 await modalBuilder.CreateModalAsync(
-                    Adds.Assets + "OutGame/Config/ConfigModal.prefab",
+                    Adds.Assets + "OutGame/Title/TitleMenu/ECUITitleMenuModal.prefab",
                     transform.parent);
                 if (!modalBuilder.IsSucceeded) { return; }
                 var modal = modalBuilder.ModalInstance;
                 modal.Set(new dUIModalDialog.Entity
                 {
-                    caption = "Config",
-                    bodyText = "Config menu is under construction.\nPlease wait for minutes.",
-                    okButton = modal.Close,
-                    cancelButton = modal.Close,
+                    caption = "Menu",
+                    okButton = null,
+                    cancelButton = null,
+                    closeButton = modal.Close,
+                    backgroundBlackout = modal.Close,
                 });
-                m_configModal = modal;
+                m_menuModal = modal;
             }
-            m_configModal.Open();
-        }
-        public async void OpenQuitGameConfirmModal()
-        {
-            if (m_quitConfirmModal == null)
-            {
-                dUIModalBuilder<dUIModalDialog> modalBuilder = new();
-                await modalBuilder.CreateModalAsync(
-                    Adds.dUI + "Compositive/dUIModalDialog.prefab",
-                    transform.parent);
-                if (!modalBuilder.IsSucceeded) { return; }
-                var modal = modalBuilder.ModalInstance;
-                modal.Set(new dUIModalDialog.Entity
-                {
-                    caption = "Quit?",
-                    bodyText = "",
-                    okButton = modal.Close,
-                    cancelButton = modal.Close,
-                });
-                m_quitConfirmModal = modal;
-            }
-            m_quitConfirmModal.Open();
+            m_menuModal.Open();
         }
         #endregion
 
