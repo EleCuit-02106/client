@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using du.Test;
+using du.Debug;
 
 namespace EleCuit {
 
@@ -9,7 +9,7 @@ namespace EleCuit {
 /// Application の立ち上げ時、AppBaseなどの常駐Scene群の次に起動される
 /// サーバ接続、UserLogin、AssetDL などを行う
 /// </summary>
-public class TitleSetup : MonoBehaviour
+public class TitleSetupScene : MonoBehaviour
 {
     #region const
     enum SetupStage {
@@ -48,13 +48,16 @@ public class TitleSetup : MonoBehaviour
     #endregion
 
     #region mono
-    private void Start()
+    private async void Start()
     {
         LLog.MainBoot.Log("Start to setup application");
-        ConnectToServer().Forget();
-        UserLogin().Forget();
-        DownloadAsset().Forget();
+        await ConnectToServer();
+        await UserLogin();
+        await DownloadAsset();
         LLog.MainBoot.Log("Completed application setup");
+
+        Screen.SetResolution(10, 10, false, 60);
+        du.Mgr.Sequence.ChangeScene("Scenes/OutGame/Title");
     }
     #endregion
 }
