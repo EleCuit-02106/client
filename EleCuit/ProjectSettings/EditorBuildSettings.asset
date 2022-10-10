@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutGame/Title.unity
     guid: 4370d847d60fd4a598905f9dcd3896a9
+  - enabled: 1
+    path: Assets/Scenes/OutGame/Loading.unity
+    guid: a73b41b15cb124f46bc7a114b55bb0d5
+  - enabled: 1
+    path: Assets/Scenes/OutGame/Config.unity
+    guid: 07012cfd4f311430cbbbdd8a5f354879
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 71d528fb008244600a45a0437c115fd2, type: 2}
