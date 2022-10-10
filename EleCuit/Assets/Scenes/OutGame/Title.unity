@@ -515,6 +515,30 @@ PrefabInstance:
       propertyPath: m_titleInfoLabels
       value: 
       objectReference: {fileID: 1472419533}
+    - target: {fileID: 1593368186846569672, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593368186846569672, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593368186846569672, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593368186846569672, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593368186846569672, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593368186846569672, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3829199649861247561, guid: 2c9679aca1cbc4c43b565ad7ce17fbb7, type: 3}
       propertyPath: m_Name
       value: ECUITitle
