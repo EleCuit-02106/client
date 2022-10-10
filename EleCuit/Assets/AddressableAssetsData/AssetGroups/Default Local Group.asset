@@ -47,6 +47,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e542db1e8e1d4bfbbea5a105329eb77
+    m_Address: Assets/Stocks/EleCuit/OutGame/Splash/direct.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de33261225e9449c0a7e0d385a936231
+    m_Address: Assets/Stocks/EleCuit/OutGame/Splash/yutorisan.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2e8d82fab83ca4348b18218193759507, type: 2}
   m_SchemaSet:
