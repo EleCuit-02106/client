@@ -96,11 +96,16 @@ namespace EC.ECUI
                 assetHash = "asset ver. " + "UNDER CONSTRUCTION",
                 userID = "ID: " + "Develop User",
             });
-            m_titleInfoLabels.SetCopyRight(new List<string>
-            {
-                "yutorisan",
-                "directiveXgames",
-            });
+            m_titleInfoLabels.SetCopyRight(CopyRightLinesToCollection(20001));
+        }
+        private IReadOnlyCollection<string> CopyRightLinesToCollection(int copyRightId)
+        {
+            var cr = MD.System.MasterCopyRightRepository.Instance.At(copyRightId);
+            List<string> ret = new();
+            if (cr.Line01.Length > 0) { ret.Add(cr.Line01); }
+            if (cr.Line02.Length > 0) { ret.Add(cr.Line02); }
+            if (cr.Line03.Length > 0) { ret.Add(cr.Line03); }
+            return ret;
         }
         #endregion
 
