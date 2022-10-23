@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
@@ -34,51 +35,56 @@ namespace EC.ECUI
         #endregion
 
         #region manual
-        #region field
-        private Sequence m_fadeLogosSequence;
-        #endregion
-
         #region private
-        private void BeginFadeLogo(string logoAdds)
+        /// <summary> ロゴ1つのフェードSequenceを作成 </summary>
+        private Sequence CreateLogoFade(string logoAdds)
+            => DOTween.Sequence()
+                .AppendCallback(() => m_splashLogo.Set(logoAdds))
+                .AppendInterval(1f)
+                .Append(m_splashLogo
+                    .DOFade(endValue: 1f, duration: 1f)
+                    .SetEase(Ease.OutSine))
+                .AppendInterval(1f)
+                .Append(m_splashLogo
+                    .DOFade(endValue: 0f, duration: 1f)
+                    .SetEase(Ease.InSine));
+
+        /// <summary> ロゴの一連のフェードSequenceを作成 </summary>
+        private du.Util.PhasedSequence CreateShowSplashLogosSequence()
         {
-            m_fadeLogosSequence.AppendCallback(
-                () => m_splashLogo.Set(logoAdds));
-            m_fadeLogosSequence.AppendInterval(1f);
-            m_fadeLogosSequence.Append(m_splashLogo
-                .DOFade(endValue: 1f, duration: 1f)
-                .SetEase(Ease.OutSine));
-            m_fadeLogosSequence.AppendInterval(1f);
-            m_fadeLogosSequence.Append(m_splashLogo
-                .DOFade(endValue: 0f, duration: 1f)
-                .SetEase(Ease.InSine));
-        }
-        private void ShowSplashLogos()
-        {
+            du.Util.PhasedSequence logoFadeSequence = new();
+            string commonAddress = Adds.Stocks + "EleCuit/OutGame/Splash/";
             List<string> logoAddsList = new()
             {
-                Adds.Stocks + "EleCuit/OutGame/Splash/yutorisan.png",
-                Adds.Stocks + "EleCuit/OutGame/Splash/direct.png",
+                "yutorisan.png",
+                "direct.png",
             };
-            m_splashLogo.Alpha = 0f;
-            m_fadeLogosSequence = DOTween.Sequence();
             foreach (string logoAdds in logoAddsList)
             {
-                BeginFadeLogo(logoAdds);
+                logoFadeSequence.Add(logoAdds, CreateLogoFade(commonAddress + logoAdds));
             }
-            m_fadeLogosSequence.AppendInterval(1f);
-            m_fadeLogosSequence.OnComplete(() => TransitionToTitleScene());
-            m_fadeLogosSequence.Play();
+            logoFadeSequence.Add("Last", DOTween.Sequence().AppendInterval(0.5f));
+            return logoFadeSequence;
+        }
+
+        private void Initialize()
+        {
+            m_splashLogo.Alpha = 0f;
         }
         private async void TransitionToTitleScene()
         {
-            await du.Mgr.Sequence.ChangeScene("Scenes/OutGame/Title");
+            await du.Mgr.Sequence.SwitchScene("Scenes/OutGame/Splash", "Scenes/OutGame/Title");
         }
         #endregion
 
         #region mono
         private void Start()
         {
-            ShowSplashLogos();
+            Initialize();
+            var logoFadeSequence = CreateShowSplashLogosSequence();
+            logoFadeSequence.OnComplete(() => TransitionToTitleScene());
+            m_background.Set(() => logoFadeSequence.CompleteCurrentPhase()); // 画面タップでロゴ1つ分スキップ
+            logoFadeSequence.Play();
         }
         #endregion
         #endregion
