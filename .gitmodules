@@ -13,3 +13,6 @@
 [submodule "EleCuit/Assets/Data/Schemas"]
 	path = EleCuit/Assets/Data/Schemas
 	url = git@github.com:EleCuit-02106/Schemas.git
+[submodule "EleCuit/Assets/Data/Data"]
+	path = EleCuit/Assets/Data/Data
+	url = git@github.com:EleCuit-02106/Data.git
