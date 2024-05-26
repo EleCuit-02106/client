@@ -82,7 +82,8 @@ namespace EC.ECUI
             int index = 0;
             foreach (var desc in buttonDescs)
             {
-                Button(index).Set(desc.text, desc.callback);
+                // Button(index).Set(desc.text, desc.callback); // TOdO
+                Button(index).Set(desc.callback);
                 ++index;
             }
         }
