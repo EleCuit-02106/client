@@ -14,6 +14,14 @@ namespace EC.ECUI
     public sealed partial class ECUIStageSelect : dUICompositiveBase
     {
         #region dUI field
+        [SerializeField] private dUIVisible m_stageTemplate00Visible;
+        [SerializeField] private dUIVisible m_stageTemplate01Visible;
+        [SerializeField] private dUIVisible m_stageTemplate02Visible;
+        [SerializeField] private dUIVisible m_stageTemplate03Visible;
+        [SerializeField] private dUIVisible m_stageTemplate04Visible;
+        [SerializeField] private dUIVisible m_stageTemplate05Visible;
+        [SerializeField] private dUIVisible m_stageTemplate06Visible;
+        [SerializeField] private dUIVisible m_stageTemplate07Visible;
         [SerializeField] private dUIText m_stageTitle00;
         [SerializeField] private dUIText m_stageTitle01;
         [SerializeField] private dUIText m_stageTitle02;
@@ -40,6 +48,14 @@ namespace EC.ECUI
         [Serializable]
         public class Entity
         {
+            public bool stageTemplate00Visible;
+            public bool stageTemplate01Visible;
+            public bool stageTemplate02Visible;
+            public bool stageTemplate03Visible;
+            public bool stageTemplate04Visible;
+            public bool stageTemplate05Visible;
+            public bool stageTemplate06Visible;
+            public bool stageTemplate07Visible;
             public string stageTitle00;
             public string stageTitle01;
             public string stageTitle02;
@@ -63,6 +79,14 @@ namespace EC.ECUI
         }
         public void Set(Entity entity)
         {
+            m_stageTemplate00Visible.Set(entity.stageTemplate00Visible);
+            m_stageTemplate01Visible.Set(entity.stageTemplate01Visible);
+            m_stageTemplate02Visible.Set(entity.stageTemplate02Visible);
+            m_stageTemplate03Visible.Set(entity.stageTemplate03Visible);
+            m_stageTemplate04Visible.Set(entity.stageTemplate04Visible);
+            m_stageTemplate05Visible.Set(entity.stageTemplate05Visible);
+            m_stageTemplate06Visible.Set(entity.stageTemplate06Visible);
+            m_stageTemplate07Visible.Set(entity.stageTemplate07Visible);
             m_stageTitle00.Set(entity.stageTitle00);
             m_stageTitle01.Set(entity.stageTitle01);
             m_stageTitle02.Set(entity.stageTitle02);

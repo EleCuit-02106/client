@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3271571228865836382}
   - component: {fileID: 6455204876015079573}
   - component: {fileID: 2983125834634044435}
+  - component: {fileID: 4516089343423227361}
   m_Layer: 5
   m_Name: StageTemplate05
   m_TagString: Untagged
@@ -136,6 +137,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &4516089343423227361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96150524043218476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage05Visible
+  m_isVisibleInitial: 1
 --- !u!1 &114482038341688942
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +164,7 @@ GameObject:
   - component: {fileID: 1315381899612328781}
   - component: {fileID: 183873048343262791}
   - component: {fileID: 2988220874233212948}
+  - component: {fileID: 4972079953014425825}
   m_Layer: 5
   m_Name: StageTemplate06
   m_TagString: Untagged
@@ -272,6 +288,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &4972079953014425825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114482038341688942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage06Visible
+  m_isVisibleInitial: 1
 --- !u!1 &2065629759595704390
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +315,7 @@ GameObject:
   - component: {fileID: 3896114229649850285}
   - component: {fileID: 4538500468006439623}
   - component: {fileID: 641723131004616623}
+  - component: {fileID: 1938605699521046063}
   m_Layer: 5
   m_Name: StageTemplate01
   m_TagString: Untagged
@@ -408,6 +439,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &1938605699521046063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065629759595704390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage01Visible
+  m_isVisibleInitial: 1
 --- !u!1 &2283101316010060631
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +764,7 @@ GameObject:
   - component: {fileID: 2380902153763021051}
   - component: {fileID: 3424438038611072392}
   - component: {fileID: 6489207893503998384}
+  - component: {fileID: 603616738322743020}
   m_Layer: 5
   m_Name: StageTemplate07
   m_TagString: Untagged
@@ -842,6 +888,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &603616738322743020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868457141707488312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage07Visible
+  m_isVisibleInitial: 1
 --- !u!1 &3026547748080807322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1102,7 @@ GameObject:
   - component: {fileID: 2640617462418971239}
   - component: {fileID: 4181236231781069436}
   - component: {fileID: 1385467806141117827}
+  - component: {fileID: 4551215646569878732}
   m_Layer: 5
   m_Name: StageTemplate04
   m_TagString: Untagged
@@ -1165,6 +1226,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &4551215646569878732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631161917307996380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage04Visible
+  m_isVisibleInitial: 1
 --- !u!1 &4182864676332065886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,6 +1686,7 @@ GameObject:
   - component: {fileID: 9068613959571190351}
   - component: {fileID: 2048222264364860953}
   - component: {fileID: 321765106479925411}
+  - component: {fileID: 4996367562650339992}
   m_Layer: 5
   m_Name: StageTemplate02
   m_TagString: Untagged
@@ -1734,6 +1810,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &4996367562650339992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532836759866903439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage02Visible
+  m_isVisibleInitial: 1
 --- !u!1 &5914882437472768084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,7 +2277,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f924e201775430a9aeb334f7130a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_titleLabel: {fileID: 0}
+  m_stageTemplate00Visible: {fileID: 4997726279457931005}
+  m_stageTemplate01Visible: {fileID: 1938605699521046063}
+  m_stageTemplate02Visible: {fileID: 4996367562650339992}
+  m_stageTemplate03Visible: {fileID: 1081148786903060378}
+  m_stageTemplate04Visible: {fileID: 4551215646569878732}
+  m_stageTemplate05Visible: {fileID: 4516089343423227361}
+  m_stageTemplate06Visible: {fileID: 4972079953014425825}
+  m_stageTemplate07Visible: {fileID: 603616738322743020}
   m_stageTitle00: {fileID: 7107488142979699832}
   m_stageTitle01: {fileID: 9039675330783017254}
   m_stageTitle02: {fileID: 6816775775058654963}
@@ -2640,6 +2737,7 @@ GameObject:
   - component: {fileID: 5300915970194012718}
   - component: {fileID: 28391513364383352}
   - component: {fileID: 1797922891412361954}
+  - component: {fileID: 1081148786903060378}
   m_Layer: 5
   m_Name: StageTemplate03
   m_TagString: Untagged
@@ -2763,6 +2861,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &1081148786903060378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119948263683096547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage03Visible
+  m_isVisibleInitial: 1
 --- !u!1 &6896470543424399152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,6 +3075,7 @@ GameObject:
   - component: {fileID: 7321062122499868132}
   - component: {fileID: 7321062122499868133}
   - component: {fileID: 5914882438834518550}
+  - component: {fileID: 4997726279457931005}
   m_Layer: 5
   m_Name: StageTemplate00
   m_TagString: Untagged
@@ -3086,6 +3199,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiLabel: 
+--- !u!114 &4997726279457931005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321062122499868135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4479b8221de247109218b1a292532af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiLabel: Stage00Visible
+  m_isVisibleInitial: 1
 --- !u!1 &7321062122691912846
 GameObject:
   m_ObjectHideFlags: 0
