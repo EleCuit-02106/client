@@ -1,3 +1,7 @@
+// -----------------------------------
+// このファイルは初回のみの自動生成スクリプトです
+// 生成後は手動編集が可能です
+// -----------------------------------
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,41 +12,10 @@ using du.UI;
 
 namespace EC.ECUI
 {
-
     /// <summary>
-    /// タイトル画面
     /// </summary>
-    public sealed class ECUITitle : dUICompositiveBase
+    public sealed partial class ECUITitle
     {
-        #region dUI field
-        [SerializeField] private dUIText m_tapToStartText;
-        [SerializeField] private dUIButton m_menuButton;
-        [SerializeField] private dUIButton m_touchableScreen;
-        [SerializeField] private dUILoadImage m_logoImage;
-        [SerializeField] private dUILoadImage m_tapToStart;
-        #endregion
-
-        #region entity
-        [Serializable]
-        public class Entity
-        {
-            public string tapToStartText;
-            public UnityAction menuButton;
-            public UnityAction touchableScreen;
-            public string logoImage;
-            public string tapToStart;
-        }
-        public void Set(Entity entity)
-        {
-            m_tapToStartText.Set(entity.tapToStartText);
-            m_menuButton.Set(entity.menuButton);
-            m_touchableScreen.Set(entity.touchableScreen);
-            m_logoImage.Set(entity.logoImage);
-            m_tapToStart.Set(entity.tapToStart);
-        }
-        #endregion
-
-        #region manual
         #region field
         [SerializeField] private ECUITitleInfoLabels m_titleInfoLabels;
         private dUIModalDialog m_menuModal;
@@ -86,7 +59,6 @@ namespace EC.ECUI
             m_menuModal.Open();
         }
         #endregion
-
         #region private
         private void InitializeInfoLabels()
         {
@@ -96,15 +68,14 @@ namespace EC.ECUI
                 assetHash = "asset ver. " + "UNDER CONSTRUCTION",
                 userID = "ID: " + "Develop User",
             });
-            m_titleInfoLabels.SetCopyRight(CopyRightLinesToCollection(20001));
+            m_titleInfoLabels.SetCopyRight(CopyRightLinesToCollection("copyRight.1"));
         }
-        private IReadOnlyCollection<string> CopyRightLinesToCollection(int copyRightId)
+        private IReadOnlyCollection<string> CopyRightLinesToCollection(string label)
         {
-            var cr = MD.System.MasterCopyRightRepository.Instance.At(copyRightId);
+            var cr = MD.MasterCopyRightRepository.Instance.GetOrNull(label);
             List<string> ret = new();
             if (cr.Line01.Length > 0) { ret.Add(cr.Line01); }
             if (cr.Line02.Length > 0) { ret.Add(cr.Line02); }
-            if (cr.Line03.Length > 0) { ret.Add(cr.Line03); }
             return ret;
         }
         #endregion
@@ -125,6 +96,6 @@ namespace EC.ECUI
             m_tapToStartBlinker.Begin(time => Mathf.Cos(time * 3.0f) * 0.4f + 0.6f);
         }
         #endregion
-        #endregion
     }
+
 }

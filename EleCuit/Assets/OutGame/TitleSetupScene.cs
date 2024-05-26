@@ -32,6 +32,12 @@ namespace EleCuit
         #endregion
 
         #region private
+        private async UniTask LoadMasterData()
+        {
+            LLog.MainBoot.Log("Start to load master data");
+            await du.MD.MasterDataLoader.LoadAllMasterData();
+            LLog.MainBoot.Log("Completed loading master data");
+        }
         private async UniTask ConnectToServer()
         {
             LLog.MainBoot.Log("Start to connect to server");
@@ -56,13 +62,15 @@ namespace EleCuit
         private async void Start()
         {
             LLog.MainBoot.Log("Start to setup application");
+            await LoadMasterData();
             await ConnectToServer();
             await UserLogin();
             await DownloadAsset();
             LLog.MainBoot.Log("Completed application setup");
 
-            Screen.SetResolution(10, 10, false, 60);
-            await du.Mgr.Sequence.ChangeScene("Scenes/OutGame/Title");
+            await du.Mgr.Sequence.UnloadScene(
+                "Scenes/OutGame/TitleSetup",
+                "Scenes/OutGame/Title");
         }
         #endregion
     }

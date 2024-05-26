@@ -35,7 +35,7 @@ namespace EC.ECUI
                 await UniTask.Delay(TimeSpan.FromSeconds(3), cancellationToken: ct);
             }
             du.Debug.LLog.Debug.Log("DDEV", "activeScene:" + du.Mgr.Sequence.ActiveScenePath);
-            await du.Mgr.Sequence.ChangeScene("Scenes/OutGame/Config");
+            await du.Mgr.Sequence.ChangeScene("Scenes/InGame/Main");
         }
 
         #region mono
