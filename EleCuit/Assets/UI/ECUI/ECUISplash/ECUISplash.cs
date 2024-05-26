@@ -82,9 +82,10 @@ namespace EC.ECUI
         {
             Initialize();
             var logoFadeSequence = CreateShowSplashLogosSequence();
-            logoFadeSequence.OnComplete(() => TransitionToTitleScene());
             m_background.Set(() => logoFadeSequence.CompleteCurrentPhase()); // 画面タップでロゴ1つ分スキップ
-            logoFadeSequence.Play();
+            logoFadeSequence
+                .OnComplete(() => TransitionToTitleScene())
+                .Play();
         }
         #endregion
         #endregion
